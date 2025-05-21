@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+*::selection {
+    background-color: #85A043;
+    color: whitesmoke;
+}
+
+body {
+    background-color: #59997594;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 45%;
+    border-bottom: 1px solid #fff;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+}
+
+header ul li {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+header ul li a:not(:has(.logo))::after{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #217074;
+    border-radius: 50px;
+    transition: width 0.3s ease, opacity 0.1s 0.1s ease;
+    opacity: 0;
+}
+
+header ul li a:not(:has(.logo))::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #217074;
+    border-radius: 50px;
+    transition: width 0.3s ease, opacity 0.1s 0.1s ease;
+    opacity: 0;
+}
+
+header ul li a:hover::after,
+header ul li a:hover::before {
+    width: 100%;
+    transition: width 0.3s ease, opacity 0.1s ease;
+    opacity: 1;
+}
+
+header ul li a:hover {
+    letter-spacing: 0.1rem;
+    color: #217074;
+}
+
+header ul:has(:last-child a:hover) :nth-child(2) {
+    transition: transform 0.3s ease;
+    transform: translateX(0.35rem)
+}
+
+header ul li a {
+    position: relative;
+    font-family: "Playpen Sans", sans-serif;
+    text-decoration: none;
+    color: #1A512E;
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+header .logo {
+    user-select: none;
+    width: 50px;
+    height: auto;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #59997594;
+}
+
+main .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    width: 55dvw;
+    height: 100dvh;
+}
+
+main .filters {
+    width: 45dvw;
+}
+
+main .catalog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 90px 0 0 90px;
+    overflow: auto;
+}
+
+main .catalog::-webkit-scrollbar {
+    background-color: transparent;
+    width: 10px;
+}
+
+main .catalog::-webkit-scrollbar-thumb {
+    background-color: #217074;
+    border-radius: 10px;
+}
+
+main .catalog .cards-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+}
+
+main .catalog .cards-container .card {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 20px;
+    background-color: #59997594;
+    transition: all 0.3s ease;
+}
+
+main .catalog .cards-container .card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+main .catalog .cards-container .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px 20px 0 0;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    background-color: #59997594;
+    padding: 50px 0px;
+}
+
+footer .social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+footer .social-media a svg {
+    width: 100px;
+    height: auto;
+}
+
+footer .social-media a {
+    transition: all 0.3s ease;
+}
+
+footer .social-media a:hover {
+    transform: scale(1.1);
+    filter: invert(1);
+}
+
+footer .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+footer .links a {
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+footer .links a:hover {
+    color: #85A043;
+}
+
+footer p {
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+}
