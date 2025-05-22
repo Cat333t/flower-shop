@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
+:root {
+  cursor: default;
+  --color-primary: #275efe;
+  --color-headline: #3f4656;
+  --color-text: #99a3ba;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,6 +21,7 @@
 
 body {
     background-color: #59997594;
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 
@@ -133,6 +141,53 @@ main .filters {
     width: 45dvw;
 }
 
+.slider-container {
+  width: 300px;
+  position: relative;
+}
+
+.range-values {
+  margin-bottom: 10px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  position: absolute;
+  pointer-events: none;
+  /* height: 0; */
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  pointer-events: all;
+  width: 15px;
+  height: 15px;
+  background: #4CAF50;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-track {
+  position: absolute;
+  height: 5px;
+  background: #ddd;
+  top: 6px;
+  width: 100%;
+  z-index: -1;
+}
+
+.slider-fill {
+  position: absolute;
+  height: 5px;
+  background: #4CAF50;
+  top: 6px;
+  z-index: -1;
+}
+
 main .catalog {
     display: flex;
     flex-direction: column;
@@ -140,9 +195,10 @@ main .catalog {
     justify-content: flex-start;
     background-color: white;
     gap: 20px;
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
     border-radius: 90px 0 0 90px;
     overflow: auto;
+    overflow-x: hidden;
 }
 
 main .catalog::-webkit-scrollbar {
@@ -155,9 +211,41 @@ main .catalog::-webkit-scrollbar-thumb {
     border-radius: 10px;
 }
 
+main .catalog .container {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 55dvw;
+    background-color: #ffffffb5;
+    padding: 15px;
+    z-index: 1;
+}
+
+main .catalog .container .input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #217074;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 0px 10px;
+    background-color: #fff;
+}
+
+main .catalog .container .input input {
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
 main .catalog .cards-container {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
@@ -166,11 +254,49 @@ main .catalog .cards-container .card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 10px;
     border-radius: 20px;
     background-color: #59997594;
+    width: 100%;
+    min-height: 300px;
     transition: all 0.3s ease;
+    transform: scale(0);
+    animation: forwards showCard 0.5s ease;
+}
+
+@keyframes showCard {
+    0% {
+        transform: scale(0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    50% {
+        transform: scale(1.01);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+main .catalog .cards-container .card.hidden {
+    animation: forwards hideCard 0.5s 0s ease;
+}
+
+@keyframes hideCard {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    50% {
+        transform: scale(1.01);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    }
+    100% {
+        transform: scale(0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        display: none;
+    }
 }
 
 main .catalog .cards-container .card:hover {
@@ -182,6 +308,43 @@ main .catalog .cards-container .card img {
     width: 100%;
     height: auto;
     border-radius: 20px 20px 0 0;
+}
+
+main .catalog .cards-container .card .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+main .catalog .cards-container .card .card-body .card-title {
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    color: #fff;
+}
+
+main .catalog .cards-container .card .card-body .card-text {
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #1A512E;
+    word-break: break-all;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+main .catalog .cards-container .card .card-body .card-price {
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #fff;
 }
 
 footer {

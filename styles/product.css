@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+*::selection {
+    background-color: #85A043;
+    color: whitesmoke;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 45%;
+    border-bottom: 1px solid #fff;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+}
+
+header ul li {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+header ul li a:not(:has(.logo))::after{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #217074;
+    border-radius: 50px;
+    transition: width 0.3s ease, opacity 0.1s 0.1s ease;
+    opacity: 0;
+}
+
+header ul li a:not(:has(.logo))::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #217074;
+    border-radius: 50px;
+    transition: width 0.3s ease, opacity 0.1s 0.1s ease;
+    opacity: 0;
+}
+
+header ul li a:hover::after,
+header ul li a:hover::before {
+    width: 100%;
+    transition: width 0.3s ease, opacity 0.1s ease;
+    opacity: 1;
+}
+
+header ul li a:hover {
+    letter-spacing: 0.1rem;
+    color: #217074;
+}
+
+header ul li a {
+    position: relative;
+    font-family: "Playpen Sans", sans-serif;
+    text-decoration: none;
+    color: #1A512E;
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+header .logo {
+    user-select: none;
+    width: 50px;
+    height: auto;
+}
+
+main {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    background-color: #59997594;
+}
+
+main .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+    background-image: url("../images/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 90px 0 0 90px;
+}
+
+main .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+    width: 45%;
+    padding: 20px;
+}
+
+main .info h1 {
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 5rem;
+    color: #fff;
+}
+
+main .info p {
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #1A512E;
+}
+
+main .info .price {
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    color: #85A043;
+}
+
+main .info a {
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #217074;
+    border: 2px solid #217074;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+main .info a:hover {
+    background-color: transparent;
+    color: #217074;
+}
+
+main .info .counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #217074;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+main .info a.active {
+    display: none;
+}
+
+main .info:has(a.active) a.active {
+    display: block;
+}
+
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    background-color: #59997594;
+    padding: 50px 0px;
+}
+
+footer .social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+footer .social-media a svg {
+    width: 100px;
+    height: auto;
+}
+
+footer .social-media a {
+    transition: all 0.3s ease;
+}
+
+footer .social-media a:hover {
+    transform: scale(1.1);
+    filter: invert(1);
+}
+
+footer .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+footer .links a {
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+footer .links a:hover {
+    color: #85A043;
+}
+
+footer p {
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+}
