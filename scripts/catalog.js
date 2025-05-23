@@ -18,7 +18,6 @@ async function run() {
             } else {
                 card.classList.add("hidden");
             }
-
         });
 
     }

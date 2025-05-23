@@ -12,6 +12,10 @@
     color: whitesmoke;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 header {
     position: absolute;
     top: 0;

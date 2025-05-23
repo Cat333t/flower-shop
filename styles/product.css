@@ -12,6 +12,10 @@
     color: whitesmoke;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 header {
     position: absolute;
     top: 0;
@@ -146,7 +150,7 @@ main .info .price {
     color: #85A043;
 }
 
-main .info a {
+main .info a.button {
     text-align: center;
     text-decoration: none;
     color: #fff;
@@ -160,23 +164,39 @@ main .info a {
     transition: all 0.3s ease;
 }
 
-main .info a:hover {
+main .info a.button:hover {
     background-color: transparent;
     color: #217074;
 }
 
 main .info .counter {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    background-color: #217074;
     padding: 10px 20px;
     border-radius: 5px;
     font-family: "Playpen Sans", sans-serif;
     font-weight: 900;
     font-size: 1.5rem;
     color: #fff;
+}
+
+main .info .counter .number {
+    font-weight: 900;
+    font-size: 2rem;
+    border: 2px solid #217074;
+    padding: 2px 20px;
+    border-radius: 5px;
+}
+
+main .info .counter .plus,
+main .info .counter .minus {
+    font-weight: 900;
+    font-size: 3rem;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
 }
 
 main .info a.active {

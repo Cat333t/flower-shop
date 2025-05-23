@@ -18,7 +18,34 @@
     </header>
 
     <main>
-        
+        <div class="delivery container">
+            <h1>Доставка</h1>
+            <form>
+                <div class="input">
+                    <label for="name" class="label">Ваше ім'я</label>
+                    <input type="text" placeholder="Ваше ім'я" id="name">
+                </div>
+
+                <div class="input">
+                    <label for="phone" class="label">Номер телефону</label>
+                    <input type="tel" placeholder="Номер телефону" value="+380" minlength="13" maxlength="13" id="phone">
+                </div>
+
+                <div class="input">
+                    <label for="address" class="label">Адреса доставки</label>
+                    <input type="text" placeholder="Адреса доставки" id="address">
+                </div>
+
+                <p>До сплати: <span id="total"></span></p>
+                <button type="submit">Замовити</button>
+            </form>
+        </div>
+
+        <div class="cards container">
+            <div class="cards-container">
+
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -35,5 +62,14 @@
 
         <p>No rights reserved.</p>
     </footer>
+
+    <div class="loader">
+        <div class="container">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
 </body>
+<script src="../scripts/basket.js"></script>
 </html>

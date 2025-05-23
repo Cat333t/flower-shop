@@ -12,6 +12,10 @@
     color: whitesmoke;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 header {
     position: absolute;
     top: 0;
@@ -103,8 +107,201 @@ main {
     background-color: #59997594;
 }
 
+main .delivery {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100dvh;
+    width: 45dvw;
+    gap: 50px;
+}
 
+main .delivery h1 {
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 5rem;
+    color: #217074;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
+main .delivery form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    gap: 25px;
+}
+
+main .delivery form .input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+main .delivery form .input label {
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #217074;
+}
+
+main .delivery form .input input {
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #217074;
+    border: 2px solid #217074;
+    border-radius: 10px;
+    padding: 5px;
+    outline: none;
+}
+
+main .delivery form p {
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #217074;
+    text-align: center;
+}
+
+main .delivery form button {
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    background-color: #217074;
+    border: 2px solid #217074;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+main .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+    width: 55dvw;
+    padding: 15px;
+    background-color: white;
+    border-radius: 90px 0px 0px 90px;
+    overflow: auto;
+}
+
+main .cards::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent;
+}
+
+main .cards::-webkit-scrollbar-thumb {
+    background-color: #217074;
+    border-radius: 10px;
+}
+
+main .cards .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    height: 100%;
+    gap: 20px;
+}
+
+main .cards .cards-container .card {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-radius: 20px;
+    background-color: #59997594;
+    width: 100%;
+    transition: all 0.3s ease;
+    transform: scale(0);
+    animation: forwards showCard 0.5s ease;
+}
+
+@keyframes showCard {
+    0% {
+        display: flex;
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.01);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+main .cards .cards-container .card.hidden {
+    animation: forwards hideCard 0.5s 0s ease;
+}
+
+@keyframes hideCard {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.01);
+    }
+    100% {
+        transform: scale(0);
+        display: none;
+    }
+}
+
+main .cards .cards-container .card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+main .cards .cards-container .card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+}
+
+main .cards .cards-container .card .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+main .cards .cards-container .card .card-body .card-title {
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    color: #fff;
+}
+
+main .cards .cards-container .card .card-body .card-text {
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #1A512E;
+    word-break: break-all;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+main .cards .cards-container .card .card-body .card-price {
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #fff;
+}
 
 footer {
     display: flex;
@@ -162,4 +359,91 @@ footer p {
     font-family: "Playpen Sans", sans-serif;
     font-weight: 900;
     font-size: 1rem;
+}
+
+
+
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+}
+
+.loader .container {
+    --uib-size: 120px;
+    --uib-color: #85A043;
+    --uib-speed: 1.3s;
+    --uib-dot-size: 25%;
+    position: relative;
+    display: inline-block;
+    height: var(--uib-size);
+    width: var(--uib-size);
+    animation: spin var(--uib-speed) infinite linear;
+}
+
+.dot {
+    position: absolute;
+    left: calc(50% - var(--uib-dot-size) / 2);
+    height: 100%;
+    width: var(--uib-dot-size);
+}
+
+.dot:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0%;
+    width: 100%;
+    padding-bottom: 100%;
+    background-color: var(--uib-color);
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.dot:nth-child(1) {
+    transform: rotate(120deg);
+}
+
+.dot:nth-child(1)::after {
+    animation: wobble var(--uib-speed) infinite ease-in-out;
+}
+
+.dot:nth-child(2) {
+    transform: rotate(-120deg);
+}
+
+.dot:nth-child(2)::after {
+    animation: wobble var(--uib-speed) infinite ease-in-out;
+}
+
+.dot:nth-child(3)::after {
+    animation: wobble var(--uib-speed) infinite ease-in-out;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes wobble {
+    0%,
+    100% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform: translateY(65%);
+    }
 }
