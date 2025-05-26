@@ -36,6 +36,7 @@ header {
     align-items: center;
     width: 45%;
     border-bottom: 1px solid #fff;
+    padding: 5px;
 }
 
 header ul {
@@ -100,6 +101,7 @@ header ul:has(:last-child a:hover) :nth-child(2) {
 }
 
 header ul li a {
+    display: flex;
     position: relative;
     font-family: "Playpen Sans", sans-serif;
     text-decoration: none;
@@ -111,7 +113,7 @@ header ul li a {
 
 header .logo {
     user-select: none;
-    width: 50px;
+    width: 60px;
     height: auto;
 }
 
@@ -181,7 +183,7 @@ input[type="range"]::-webkit-slider-thumb {
     height: 15px;
     background: green;
     border-radius: 50%;
-    cursor: pointer;
+    cursor: grab;
 }
 
 .slider-track {
@@ -199,6 +201,13 @@ input[type="range"]::-webkit-slider-thumb {
     background: #4CAF50;
     top: 6px;
     z-index: -1;
+}
+
+#min-val,
+#max-val {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #22b09f;
 }
 
 main .catalog {
@@ -274,6 +283,9 @@ main .catalog .cards-container .card {
     min-height: 300px;
     transition: all 0.3s ease;
     transform: scale(0);
+}
+
+main .catalog .cards-container .card.visible {
     animation: forwards showCard 0.5s ease;
 }
 
@@ -373,17 +385,19 @@ footer .social-media {
 }
 
 footer .social-media a svg {
+    transition: all 0.3s ease, transform 1s ease;
     width: 100px;
     height: auto;
+    transition: all 0.3s ease, transform 1s ease;
 }
 
 footer .social-media a {
     transition: all 0.3s ease;
 }
 
-footer .social-media a:hover {
-    transform: scale(1.1);
-    filter: invert(1);
+footer .social-media a:hover > svg {
+    scale: 1.1;
+    transform: rotateY(360deg);
 }
 
 footer .links {

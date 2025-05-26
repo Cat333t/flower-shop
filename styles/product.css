@@ -24,6 +24,7 @@ header {
     align-items: center;
     width: 45%;
     border-bottom: 1px solid #fff;
+    padding: 5px;
 }
 
 header ul {
@@ -83,6 +84,7 @@ header ul li a:hover {
 }
 
 header ul li a {
+    display: flex;
     position: relative;
     font-family: "Playpen Sans", sans-serif;
     text-decoration: none;
@@ -94,7 +96,7 @@ header ul li a {
 
 header .logo {
     user-select: none;
-    width: 50px;
+    width: 60px;
     height: auto;
 }
 
@@ -229,15 +231,16 @@ footer .social-media {
 footer .social-media a svg {
     width: 100px;
     height: auto;
+    transition: all 0.3s ease, transform 1s ease;
 }
 
 footer .social-media a {
     transition: all 0.3s ease;
 }
 
-footer .social-media a:hover {
-    transform: scale(1.1);
-    filter: invert(1);
+footer .social-media a:hover > svg {
+    scale: 1.1;
+    transform: rotateY(360deg);
 }
 
 footer .links {

@@ -38,8 +38,12 @@ async function run() {
         card.addEventListener('click', () => {
             window.location.href = `./product.html#${AllProducts.indexOf(product)}`;
         });
-
-        card.style.animationDelay = `${AllProducts.indexOf(product) * 0.1}s`;
+        
+        if (AllProducts.indexOf(product) % 2) { //если чотное
+            card.style.animationDelay = `0.2s`;
+        } else {
+            card.style.animationDelay = `0s`;
+        }
         cardsContainer.appendChild(card);
     });
 
@@ -137,6 +141,28 @@ async function run() {
     maxRange.addEventListener("input", updateSlider);
 
     updateSlider(); // начальное обновление
+
+    window.scrollTo(0, 0);
+
+
+
+    const cards = document.querySelectorAll('.card');
+
+    const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Если нужно, чтобы анимация срабатывала только один раз:
+        observer.unobserve(entry.target);
+        }
+    });
+    }, {
+    threshold: 0.1 // 10% карточки должно быть видно, чтобы запустить анимацию
+    });
+
+    cards.forEach(card => {
+    observer.observe(card);
+    });
 
 }
 

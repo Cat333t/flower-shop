@@ -40,6 +40,7 @@ async function run() {
     if(basket.length === 0) {
         let h1 = document.createElement('h1');
         h1.style.textAlign = 'center';
+        h1.style.alignSelf = 'center';
         h1.innerHTML = 'Кошик порожній <br> Перейдіть до <a href="./catalog.html">каталогу</a>';
         cardsContainer.appendChild(h1);
     }
@@ -64,8 +65,9 @@ async function run() {
     });
     const phone = document.getElementById('phone');
     phone.addEventListener('input', () => {
-        phone.value = phone.value.replace(/[^0-9+]/g, '');
         let number = phone.value.slice(4, phone.value.length);
+        number = number.replace(/[^0-9+]/g, '');
+        number = number.replace("+", "");
         phone.value = '+380' + number;
     })
 
@@ -79,6 +81,7 @@ async function run() {
         const name = document.getElementById('name');
         const phone = document.getElementById('phone');
         const address = document.getElementById('address');
+        const allCards = document.querySelectorAll('.card');
         let flag = false;
 
         if(name.value === '') {
@@ -100,6 +103,11 @@ async function run() {
             flag = true;
         } else {
             address.style.border = '2px solid green';
+        }   
+
+        if(allCards.length === 0) {
+            alert('Кошик порожній!');
+            window.location.href = './catalog.html';
         }
 
         if(flag) {
