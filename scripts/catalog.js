@@ -28,7 +28,7 @@ async function run() {
         const card = document.createElement('div');
         card.classList.add('card');
         card.innerHTML = `
-            <img src="../images/catalog/${product.img}" class="card-img" alt="Error loading image">
+            <img src="../images/catalog/${product.img}" loading="lazy" class="card-img" alt="Error loading image">
             <div class="card-body">
                 <h5 class="card-title">${product.name}</h5>
                 <p class="card-price">${product.price} грн</p>

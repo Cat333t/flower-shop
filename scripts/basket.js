@@ -8,6 +8,11 @@ async function run() {
         let cookie = cookies[i].split('=');
         if (cookie[0] === 'basket') {
             basket = JSON.parse(cookie[1]);
+        } else if (cookie[0] === 'user') {
+            const user = JSON.parse(cookie[1]);
+            document.getElementById('name').value = user.name || '';
+            document.getElementById('phone').value = user.phone || '';
+            document.getElementById('address').value = user.address || '';
         }
     }
 
@@ -116,7 +121,15 @@ async function run() {
                 alert('Заповніть всі поля!');
             }, Math.floor(Math.random() * (3000 - 1000 + 1)) + 1000); // 1 - 3
         } else {
-            document.cookie = "[]";
+            const user = {
+                name: name.value,
+                phone: phone.value,
+                address: address.value,
+            };
+            console.log(user);
+            
+            document.cookie = `basket=${JSON.stringify(basket)}; max-age=0`; // Clear basket cookie
+            document.cookie = `user=${JSON.stringify(user)}; basket=[]; max-age=${60 * 60 * 24 * 30}`; // 30 days
           
             setTimeout(() => {
                 loader.style.display = 'none';

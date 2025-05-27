@@ -101,18 +101,51 @@ header .logo {
 }
 
 main {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
     background-color: #59997594;
 }
 
+main .content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 45%;
+    padding: 25px;
+    padding-top: 50px;
+}
 
+main .content h1 {
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 900;
+    font-size: 5rem;
+    color: #217074;
+}
 
+main .content p {
+    font-family: "Playpen Sans", sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #1A512E;
+    text-align: center;
+    line-height: 1.5;
+}
 
-
+main .image {
+    background-image: url("../images/bg2.png");
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+    width: 55%;
+    height: 100dvh;
+    object-fit: cover;
+    border-radius: 90px 0 0 90px;
+}
 
 footer {
     display: flex;
