@@ -268,3 +268,66 @@ footer p {
     font-weight: 900;
     font-size: 1rem;
 }
+
+
+
+@media (max-width: 960px) {
+    header {
+        background: #59997594;
+        width: 100% !important;
+        height: 80px;
+        justify-content: center !important;
+        position: relative;
+    }
+
+    main {
+        height: calc(100dvh - 80px);
+    }
+
+    main .image {
+        height: calc(100dvh - 80px);
+    }
+
+    .info h1 {
+        font-size: 3rem !important;
+    }
+}
+
+@media (max-width: 780px) {
+    main {
+        height: auto;
+        flex-direction: column-reverse;
+    }
+
+    main .image {
+        height: calc(100dvh - 100px);
+        width: 100% !important;
+        border-radius: 0 !important;
+    }
+
+    main .info {
+        align-items: center;
+        width: 100% !important;
+        height: 75dvh;
+    }
+
+    main .info .description {
+        text-align: center;
+    }
+}
+
+@media (max-width: 520px) {
+    header li:has(.logo) {
+        display: none;
+    }
+
+    header li a {
+        font-size: 1.8rem !important; 
+    }
+}
+
+@media (max-width: 385px) {
+    header li a {
+        font-size: 1.4rem !important; 
+    }
+}

@@ -53,21 +53,6 @@ async function run() {
     const totalElement = document.getElementById('total');
     totalElement.textContent = total + ' грн';
 
-    const body = document.querySelector('body');
-    const card_container = document.querySelector('.cards');
-    card_container.addEventListener("scroll", () => {
-        const isAtBottom = card_container.scrollTop + card_container.clientHeight >= card_container.scrollHeight - 10;
-
-        if (isAtBottom) {
-            body.style.overflowY = 'scroll';
-        } else {
-            body.style.overflowY = 'hidden';
-        }
-
-        if(window.scrollY > 0) {
-            window.scrollTo(0, 0);
-        }
-    });
     const phone = document.getElementById('phone');
     phone.addEventListener('input', () => {
         let number = phone.value.slice(4, phone.value.length);
@@ -136,6 +121,13 @@ async function run() {
                 window.location.href = './thanks.html';
             }, Math.floor(Math.random() * (3000 - 1000 + 1)) + 1000); // 1 - 3
         }
+    })
+
+
+    const basketButton = document.querySelector('.basket-btn');
+    const cards = document.querySelector('.cards');
+    basketButton.addEventListener('click', () => {
+        cards.classList.toggle('show');
     })
 }
 

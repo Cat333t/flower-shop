@@ -456,3 +456,96 @@ footer p {
         transform: translateY(65%);
     }
 }
+
+
+
+@media (max-width: 960px) {
+    body {
+        background-color: #59997594;
+    }
+
+    main {
+        height: calc(100dvh - 80px) !important;
+        background-color: unset;
+    }
+
+    header {
+        /* background: #59997594; */
+        width: 100% !important;
+        height: 80px;
+        justify-content: center !important;
+        position: relative;
+    }
+
+    .container {
+        width: 50% !important;
+        height: calc(100dvh - 80px) !important;
+    }
+
+    form {
+        width: auto !important;
+    }
+}
+
+@media (max-width: 850px) {
+    .delivery h1 {
+        font-size: 3.5rem !important;
+    }
+}
+
+@media (max-width: 800px) {
+    .cards {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100% !important;
+        height: calc(100dvh - 80px) !important;
+        border-radius: 0 !important;
+
+        transform: translateX(-100%) !important;
+        transition: all 0.3s ease;
+    }
+
+    .cards.show {
+        transform: translateX(0) !important;
+    }
+
+    .delivery {
+        width: 100% !important;
+        height: calc(100dvh - 80px) !important;
+    }
+
+    .basket-btn {
+        display: inline !important;
+        position: absolute;
+        top: calc(80px + 20px);
+        right: 20px;
+        font-family: "Playpen Sans", sans-serif;
+        font-weight: 900;
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: #fff;
+        background-color: #599975;
+        border-radius: 50px;
+        padding: 10px 20px;
+        transition: all 0.3s ease;
+
+        z-index: 1;
+    }
+}
+
+@media (max-width: 520px) {
+    header li:has(.logo) {
+        display: none;
+    }
+
+    header li a {
+        font-size: 1.8rem !important; 
+    }
+}
+
+@media (max-width: 385px) {
+    header li a {
+        font-size: 1.4rem !important; 
+    }
+}

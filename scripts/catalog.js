@@ -53,22 +53,6 @@ async function run() {
         updateCards()
     })
 
-    const body = document.querySelector('body');
-    const catalog = document.querySelector('.catalog');
-    catalog.addEventListener("scroll", () => {
-        const isAtBottom = catalog.scrollTop + catalog.clientHeight >= catalog.scrollHeight - 10;
-
-        if (isAtBottom) {
-            body.style.overflowY = 'scroll';
-        } else {
-            body.style.overflowY = 'hidden';
-        }
-
-        if(window.scrollY > 0) {
-            window.scrollTo(0, 0);
-        }
-    });
-
     // ищем самую маленькую цену
     const allCards = document.querySelectorAll(".card");
     let minPrice = Infinity;
@@ -149,21 +133,33 @@ async function run() {
     const cards = document.querySelectorAll('.card');
 
     const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        // Если нужно, чтобы анимация срабатывала только один раз:
-        observer.unobserve(entry.target);
-        }
-    });
-    }, {
-    threshold: 0.1 // 10% карточки должно быть видно, чтобы запустить анимацию
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            // Если нужно, чтобы анимация срабатывала только один раз:
+            observer.unobserve(entry.target);
+            }
+        });
+        }, {
+        threshold: 0.1 // 10% карточки должно быть видно, чтобы запустить анимацию
     });
 
     cards.forEach(card => {
     observer.observe(card);
     });
 
+
+
+    const btnFilter = document.querySelector('.btn-filter');
+    const filters = document.querySelector('.filters');
+    btnFilter.addEventListener('click', () => {
+        filters.classList.toggle('show');
+    });
+
+    const closeFilter = document.querySelector('.close-btn');
+    closeFilter.addEventListener('click', () => {
+        filters.classList.remove('show');
+    });
 }
 
 run();

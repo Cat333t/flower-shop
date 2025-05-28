@@ -205,3 +205,62 @@ footer p {
     font-weight: 900;
     font-size: 1rem;
 }
+
+@media (max-width: 1100px) {
+    .image {
+        background-position: 70% !important;
+    }
+}
+
+@media (max-width: 960px) {
+    .image {
+        display: none !important;
+    }
+
+    body {
+        background-image: url("../images/bg2.png");
+        background-size: cover;
+        background-position: 90% bottom !important;
+        background-repeat: no-repeat;
+    }
+
+    main .content {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        padding-top: 80px;
+    }
+
+    main .content h1,
+    main .content p {
+        color: #fff;
+    }
+
+    main .content p {
+        font-size: 1.2rem;
+        font-weight: 1000;
+    }
+
+    header {
+        /* background: #59997594; */
+        width: 100% !important;
+        height: 80px;
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 520px) {
+    header li:has(.logo) {
+        display: none;
+    }
+
+    header li a {
+        font-size: 1.8rem !important; 
+    }
+}
+
+@media (max-width: 385px) {
+    header li a {
+        font-size: 1.4rem !important; 
+    }
+}
