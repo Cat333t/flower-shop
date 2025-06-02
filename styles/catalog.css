@@ -524,9 +524,14 @@ footer p {
 @media (max-width: 960px) {
     header {
         /* background: #59997594; */
+        padding: 0 !important;
         width: 100% !important;
         height: 80px;
         justify-content: center !important;
+    }
+
+    header li a:hover {
+        letter-spacing: normal !important;
     }
 }
 
@@ -545,6 +550,12 @@ footer p {
 @media (max-width: 520px) {
     header li:has(.logo) {
         display: none;
+    }
+
+    header .separator {
+        height: 80px !important;
+        width: 1px !important;
+        background-color: #fff !important;
     }
 
     header li a {

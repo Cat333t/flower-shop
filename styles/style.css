@@ -37,6 +37,10 @@ header ul {
 }
 
 header ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
     position: relative;
     transition: transform 0.3s ease;
 }
@@ -267,9 +271,14 @@ footer p {
 
     header {
         /* background: #59997594; */
+        padding: 0 !important;
         width: 100% !important;
         height: 80px;
         justify-content: center !important;
+    }
+
+    header li a:hover {
+        letter-spacing: normal !important;
     }
 
     .button:hover {
@@ -281,6 +290,12 @@ footer p {
 /* 520px */
 
 @media (max-width: 520px) {
+    header .separator {
+        height: 80px !important;
+        width: 1px !important;
+        background-color: #fff !important;
+    }
+
     header li:has(.logo) {
         display: none;
     }
