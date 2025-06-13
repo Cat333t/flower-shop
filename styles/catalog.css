@@ -293,8 +293,8 @@ main .catalog .cards-container .card {
     background-color: #59997594;
     width: 100%;
     min-height: 300px;
-    transition: all 0.3s ease;
     transform: scale(0);
+    transition: all 0.5s ease;
 }
 
 main .catalog .cards-container .card.visible {
@@ -332,7 +332,8 @@ main .catalog .cards-container .card.hidden {
 }
 
 main .catalog .cards-container .card:hover {
-    transform: scale(1.01);
+    transition: all 0.3s ease;
+    scale: 1.01;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 

@@ -128,8 +128,6 @@ async function run() {
 
     window.scrollTo(0, 0);
 
-
-
     const cards = document.querySelectorAll('.card');
 
     const observer = new IntersectionObserver((entries) => {
@@ -141,11 +139,11 @@ async function run() {
             }
         });
         }, {
-        threshold: 0.1 // 10% карточки должно быть видно, чтобы запустить анимацию
+        threshold: 0.1
     });
 
     cards.forEach(card => {
-    observer.observe(card);
+        observer.observe(card);
     });
 
 
